@@ -10,4 +10,3 @@ namespace EmailClient;
 public partial class App : Application
 {
 }
-

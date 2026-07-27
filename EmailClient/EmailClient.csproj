@@ -8,4 +8,12 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+        <None Include="Credentials\client_secret.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+      <PackageReference Include="Google.Apis.Auth" Version="1.75.0" />
+      <PackageReference Include="Google.Apis.Gmail.v1" Version="1.74.0.4162" />
+    </ItemGroup>
+
 </Project>
