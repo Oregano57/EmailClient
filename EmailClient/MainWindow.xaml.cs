@@ -33,4 +33,9 @@ public partial class MainWindow : Window
             MessageBox.Show(label);
         }
     }
+
+    private async void SignInWithGoogleButton_Click(object sender, RoutedEventArgs e)
+    {
+        
+    }
 }

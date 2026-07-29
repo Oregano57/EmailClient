@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmailClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="Email Client" Height="450" Width="800">
+    <Grid x:Name="MainGrid">
+        <Grid x:Name="LoginGrid" Background="#FF96A0"/>
+              <StackPanel Margin="200,0" HorizontalAlignment="Center">
+                  <Label Content="Welcome!" Margin="20,100,20,0" FontSize="40" FontWeight="DemiBold">
+                      <Label.LayoutTransform>
+                          <ScaleTransform ScaleX="1.5" ScaleY="1.2"/>
+                      </Label.LayoutTransform>
+                  </Label>
+                  <Button Content="Sign In With Google" Click="SignInWithGoogleButton_Click" FontSize="20" Height="30" Margin="0,20,0,0"/>
+              </StackPanel>
+        
+        
     </Grid>
 </Window>
