@@ -23,7 +23,7 @@ public class GmailClient
 
         _service = new GmailService(new BaseClientService.Initializer()
         {
-            HttpClientInitializer = credential, ApplicationName = "MyEmailClient"
+            HttpClientInitializer = credential, ApplicationName = "EmailClient(C#)"
         });
     }
     
