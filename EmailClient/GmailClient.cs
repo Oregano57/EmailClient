@@ -18,17 +18,12 @@ public class GmailClient
         using (var stream = new FileStream("Credentials/client_secret.json", FileMode.Open, FileAccess.Read))
         {
             credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                GoogleClientSecrets.FromStream(stream).Secrets,
-                scopes,
-                "user",
-                CancellationToken.None,
-                new FileDataStore("token.json", true));
+                GoogleClientSecrets.FromStream(stream).Secrets, scopes, "user", CancellationToken.None, new FileDataStore("token.json", true));
         }
 
         _service = new GmailService(new BaseClientService.Initializer()
         {
-            HttpClientInitializer = credential,
-            ApplicationName = "MyEmailClient"
+            HttpClientInitializer = credential, ApplicationName = "MyEmailClient"
         });
     }
     
