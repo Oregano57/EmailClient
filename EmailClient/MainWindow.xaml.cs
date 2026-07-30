@@ -27,12 +27,8 @@ public partial class MainWindow : Window
     private async void SignInWithGoogleButton_Click(object sender, RoutedEventArgs e)
     {
         await _gmailClient.AuthenticateAsync();
-        var labels = await _gmailClient.GetLabelNamesAsync();
-
-        foreach (var label in labels)
-        {
-            MessageBox.Show(label);
-        }
+        LoginGrid.Visibility = Visibility.Collapsed;
+        
     }
 
     private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
