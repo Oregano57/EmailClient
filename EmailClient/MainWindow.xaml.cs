@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,7 +24,7 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
-    private async void ConnectButton_Click(object sender, RoutedEventArgs e)
+    private async void SignInWithGoogleButton_Click(object sender, RoutedEventArgs e)
     {
         await _gmailClient.AuthenticateAsync();
         var labels = await _gmailClient.GetLabelNamesAsync();
@@ -34,8 +35,24 @@ public partial class MainWindow : Window
         }
     }
 
-    private async void SignInWithGoogleButton_Click(object sender, RoutedEventArgs e)
+    private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
     {
-        
+        if (!Directory.Exists("token.json"))
+        {
+            LoginGrid.Visibility = Visibility.Visible;
+            return;
+        }
+
+        try
+        {
+            await _gmailClient.AuthenticateAsync();
+            LoginGrid.Visibility = Visibility.Collapsed;
+        }
+        catch
+        {
+            LoginGrid.Visibility = Visibility.Visible;
+        }
     }
+    
+    
 }
