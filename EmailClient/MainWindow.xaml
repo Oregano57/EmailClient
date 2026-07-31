@@ -10,9 +10,9 @@
     <Grid x:Name="MainGrid" Background="#66FF96A0">
         <Grid x:Name="LoginGrid" Background="#FF96A0">
               <StackPanel Margin="200,0" HorizontalAlignment="Center">
-                  <Label Content="Welcome!" Margin="20,100,20,0" FontSize="40" FontWeight="DemiBold">
+                  <Label Content="Welcome!" Margin="20,180,20,0" FontSize="40" FontWeight="DemiBold">
                       <Label.LayoutTransform>
-                          <ScaleTransform ScaleX="1.5" ScaleY="1.2"/>
+                          <ScaleTransform ScaleX="1.5" ScaleY="1.3"/>
                       </Label.LayoutTransform>
                   </Label>
                   <Button Content="Sign In With Google" Click="SignInWithGoogleButton_Click" FontSize="20" Height="30" Margin="0,20,0,0"/>
