@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmailClient"
         mc:Ignorable="d"
-        Title="Email Client" Height="600" Width="1000"
+        Title="Email Client" Height="450" Width="800"
         Loaded="MainWindow_Loaded">
     <Grid x:Name="MainGrid" Background="#66FF96A0">
         <Grid x:Name="LoginGrid" Background="#FF96A0">

@@ -28,13 +28,25 @@ public partial class MainWindow : Window
     {
         await _gmailClient.AuthenticateAsync();
         LoginGrid.Visibility = Visibility.Collapsed;
-        
+        this.Height = 700;
+        this.Width = 1100;
+
     }
 
     private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
     {
         bool valid = await _gmailClient.TryAuthenticateSilentlyAsync();
-        LoginGrid.Visibility = valid ? Visibility.Collapsed : Visibility.Visible;
+
+        if (valid)
+        {
+            LoginGrid.Visibility = Visibility.Collapsed;
+            this.Height = 700;
+            this.Width = 1100;
+        }
+        else
+        {
+            LoginGrid.Visibility = Visibility.Visible;
+        }
     }
     
     
