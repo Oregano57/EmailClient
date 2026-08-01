@@ -30,6 +30,7 @@ public partial class MainWindow : Window
         LoginGrid.Visibility = Visibility.Collapsed;
         this.Height = 700;
         this.Width = 1100;
+        CenterWindow();
 
     }
 
@@ -42,12 +43,18 @@ public partial class MainWindow : Window
             LoginGrid.Visibility = Visibility.Collapsed;
             this.Height = 700;
             this.Width = 1100;
+            CenterWindow();
         }
         else
         {
             LoginGrid.Visibility = Visibility.Visible;
         }
     }
-    
+
+    private void CenterWindow()
+    {
+        this.Left = (SystemParameters.PrimaryScreenWidth - this.Width) / 2;
+        this.Top = (SystemParameters.PrimaryScreenHeight - this.Height) / 2;
+    }
     
 }
