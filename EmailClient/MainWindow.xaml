@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Email Client" Height="450" Width="800"
         Loaded="MainWindow_Loaded">
-    <Grid x:Name="MainGrid" Background="#66FF96A0">
+    <Grid x:Name="DefaultGrid">
         <Grid x:Name="LoginGrid" Background="#FF96A0" d:IsHidden="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -23,6 +23,21 @@
                   <Button Content="Sign In With Google" Click="SignInWithGoogleButton_Click" FontSize="20" Height="33"/>
               </StackPanel>
         </Grid>
-        
+        <Grid x:Name="MainGrid" Background="#66FF96A0">
+            <DockPanel Height="30" Background="BlanchedAlmond" VerticalAlignment="Top" LastChildFill="False">
+                <Button DockPanel.Dock="Right" Content="Sign Out" Click="SignOutButton_Click" Background="Beige" Margin="5" FontWeight="Bold" FontSize="10" Width="50" Height="20"/>
+                <Button DockPanel.Dock="Right" Content="Notifications" Click="NotificationsButton_Click" Background="Beige" FontWeight="Bold" FontSize="10" Width="80" Height="20"/>
+            </DockPanel>
+            <ListBox Margin="0,30,0,0" ItemsSource="{Binding Labels}" Width="170" HorizontalAlignment="Left" Background="LightCoral">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="Coral" CornerRadius="10, 5,5,10" Padding="3" Margin="2">
+                            <TextBlock Text="{Binding}" FontSize="12" FontWeight="Bold"/>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </Grid>
     </Grid>
 </Window>

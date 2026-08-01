@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.ObjectModel;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,10 +19,13 @@ namespace EmailClient;
 /// </summary>
 public partial class MainWindow : Window
 {
+    public ObservableCollection<string> Labels { get; set; } = new ObservableCollection<string>();
+
     private GmailClient _gmailClient = new GmailClient();
     public MainWindow()
     {
         InitializeComponent();
+        DataContext = this;
     }
 
     private async void SignInWithGoogleButton_Click(object sender, RoutedEventArgs e)
@@ -31,6 +35,11 @@ public partial class MainWindow : Window
         this.Height = 700;
         this.Width = 1100;
         CenterWindow();
+        var labelNames = await _gmailClient.GetLabelNamesAsync();
+        foreach (var name in labelNames)
+        {
+            Labels.Add(name);
+        }
 
     }
 
@@ -44,6 +53,11 @@ public partial class MainWindow : Window
             this.Height = 700;
             this.Width = 1100;
             CenterWindow();
+            var labelNames = await _gmailClient.GetLabelNamesAsync();
+            foreach (var name in labelNames)
+            {
+                Labels.Add(name);
+            }
         }
         else
         {
@@ -55,6 +69,16 @@ public partial class MainWindow : Window
     {
         this.Left = (SystemParameters.PrimaryScreenWidth - this.Width) / 2;
         this.Top = (SystemParameters.PrimaryScreenHeight - this.Height) / 2;
+    }
+
+    private void SignOutButton_Click(object sender, RoutedEventArgs e)
+    {
+        
+    }
+
+    private void NotificationsButton_Click(object sender, RoutedEventArgs e)
+    {
+        
     }
     
 }
