@@ -8,14 +8,19 @@
         Title="Email Client" Height="450" Width="800"
         Loaded="MainWindow_Loaded">
     <Grid x:Name="MainGrid" Background="#66FF96A0">
-        <Grid x:Name="LoginGrid" Background="#FF96A0" d:Visibility="Collapsed">
-              <StackPanel Margin="200,0" HorizontalAlignment="Center">
-                  <Label Content="Welcome!" Margin="20,180,20,0" FontSize="40" FontWeight="DemiBold">
+        <Grid x:Name="LoginGrid" Background="#FF96A0" d:IsHidden="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                  <Label Content="Welcome!" HorizontalAlignment="Center" FontSize="40" FontWeight="DemiBold">
                       <Label.LayoutTransform>
                           <ScaleTransform ScaleX="1.5" ScaleY="1.3"/>
                       </Label.LayoutTransform>
                   </Label>
-                  <Button Content="Sign In With Google" Click="SignInWithGoogleButton_Click" FontSize="20" Height="30" Margin="0,20,0,0"/>
+                  <Button Content="Sign In With Google" Click="SignInWithGoogleButton_Click" FontSize="20" Height="33"/>
               </StackPanel>
         </Grid>
         
