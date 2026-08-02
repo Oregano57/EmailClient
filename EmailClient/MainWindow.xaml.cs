@@ -33,6 +33,7 @@ public partial class MainWindow : Window
     {
         await _gmailClient.AuthenticateAsync();
         LoginGrid.Visibility = Visibility.Collapsed;
+        MainGrid.Visibility = Visibility.Visible;
         this.Height = 700;
         this.Width = 1100;
         CenterWindow();
@@ -51,6 +52,7 @@ public partial class MainWindow : Window
         if (valid)
         {
             LoginGrid.Visibility = Visibility.Collapsed;
+            MainGrid.Visibility = Visibility.Visible;
             this.Height = 700;
             this.Width = 1100;
             CenterWindow();
@@ -63,6 +65,7 @@ public partial class MainWindow : Window
         else
         {
             LoginGrid.Visibility = Visibility.Visible;
+            MainGrid.Visibility  = Visibility.Collapsed;
         }
     }
 
@@ -84,6 +87,7 @@ public partial class MainWindow : Window
                 Directory.Delete("token.json", true);
 
             LoginGrid.Visibility = Visibility.Visible;
+            MainGrid.Visibility = Visibility.Collapsed;
             this.Height = 450;
             this.Width = 800;
             CenterWindow();
