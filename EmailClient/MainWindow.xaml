@@ -26,8 +26,13 @@
         <Grid x:Name="MainGrid" Background="#66FF96A0">
             <DockPanel Height="30" Background="BlanchedAlmond" VerticalAlignment="Top" LastChildFill="False">
                 <Button DockPanel.Dock="Right" Content="Sign Out" Click="SignOutButton_Click" Background="Beige" Margin="5" FontWeight="Bold" FontSize="10" Width="50" Height="20"/>
-                <Button DockPanel.Dock="Right" Content="Notifications" Click="NotificationsButton_Click" Background="Beige" FontWeight="Bold" FontSize="10" Width="80" Height="20"/>
+                <Button DockPanel.Dock="Right" Content="Notifications" Click="NotificationsButton_Click" x:Name="NotificationsButtonElement" Background="Beige" FontWeight="Bold" FontSize="10" Width="80" Height="20"/>
             </DockPanel>
+            <Popup x:Name="NotificationsPopup" PlacementTarget="{Binding ElementName=NotificationsButtonElement}" Placement="Bottom" HorizontalOffset="-125" VerticalOffset="5" IsOpen="False" StaysOpen="False">
+                <Border Background="White" BorderBrush="Gray" Width="250" MaxHeight="300" BorderThickness="1" Padding="10" CornerRadius="5">
+                    <TextBlock Text="No New Notifications" FontSize="12"/>
+                </Border>
+            </Popup>
             <ListBox Margin="0,30,0,0" ItemsSource="{Binding Labels}" Width="170" HorizontalAlignment="Left" Background="LightCoral">
                 <ListBox.ItemTemplate>
                     <DataTemplate>

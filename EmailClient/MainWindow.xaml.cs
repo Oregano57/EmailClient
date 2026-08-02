@@ -98,7 +98,9 @@ public partial class MainWindow : Window
 
     private void NotificationsButton_Click(object sender, RoutedEventArgs e)
     {
-        
+        if (NotificationsPopup.IsOpen)
+            NotificationsPopup.IsOpen = false;
+        NotificationsPopup.IsOpen = true;
     }
     
 }
