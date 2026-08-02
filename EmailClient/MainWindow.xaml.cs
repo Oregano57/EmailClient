@@ -83,15 +83,17 @@ public partial class MainWindow : Window
         }
         catch
         {
-            if (Directory.Exists("token.json"))
-                Directory.Delete("token.json", true);
-
-            LoginGrid.Visibility = Visibility.Visible;
-            MainGrid.Visibility = Visibility.Collapsed;
-            this.Height = 450;
-            this.Width = 800;
-            CenterWindow();
+            
         }
+        if (Directory.Exists("token.json"))
+            Directory.Delete("token.json", true);
+
+        LoginGrid.Visibility = Visibility.Visible;
+        MainGrid.Visibility = Visibility.Collapsed;
+        this.Height = 450;
+        this.Width = 800;
+        CenterWindow();
+        
     }
 
     private void NotificationsButton_Click(object sender, RoutedEventArgs e)
