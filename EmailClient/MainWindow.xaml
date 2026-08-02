@@ -29,7 +29,7 @@
                 <Button DockPanel.Dock="Right" Content="Notifications" Click="NotificationsButton_Click" x:Name="NotificationsButtonElement" Background="Beige" FontWeight="Bold" FontSize="10" Width="80" Height="20"/>
             </DockPanel>
             <Popup x:Name="NotificationsPopup" PlacementTarget="{Binding ElementName=NotificationsButtonElement}" Placement="Bottom" HorizontalOffset="-125" VerticalOffset="5" IsOpen="False" StaysOpen="False">
-                <Border Background="White" BorderBrush="Gray" Width="250" MaxHeight="300" BorderThickness="1" Padding="10" CornerRadius="5">
+                <Border Background="White" BorderBrush="Gray" Width="250" MinHeight="100" MaxHeight="300" BorderThickness="1" Padding="10" CornerRadius="5">
                     <TextBlock Text="No New Notifications" FontSize="12"/>
                 </Border>
             </Popup>
