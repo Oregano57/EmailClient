@@ -77,4 +77,14 @@ public class GmailClient
         var response = await request.ExecuteAsync();
         return response.Labels.Select(l => l.Name).ToList();
     }
+    
+    public async Task RevokeAccessAsync()
+    {
+        if (_service?.HttpClientInitializer is UserCredential credential)
+        {
+            await credential.RevokeTokenAsync(CancellationToken.None);
+        }
+        
+    }
+    
 }

@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Google.Apis.Auth.OAuth2;
 using Google.Apis.Gmail.v1;
 
 namespace EmailClient;
@@ -71,9 +72,22 @@ public partial class MainWindow : Window
         this.Top = (SystemParameters.PrimaryScreenHeight - this.Height) / 2;
     }
 
-    private void SignOutButton_Click(object sender, RoutedEventArgs e)
+    private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     {
-        
+        try
+        {
+            await _gmailClient.RevokeAccessAsync();
+        }
+        catch
+        {
+            if (Directory.Exists("token.json"))
+                Directory.Delete("token.json", true);
+
+            LoginGrid.Visibility = Visibility.Visible;
+            this.Height = 450;
+            this.Width = 800;
+            CenterWindow();
+        }
     }
 
     private void NotificationsButton_Click(object sender, RoutedEventArgs e)
