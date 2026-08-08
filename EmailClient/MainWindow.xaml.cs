@@ -48,7 +48,7 @@ public partial class MainWindow : Window
     private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
     {
         bool valid = await _gmailClient.TryAuthenticateSilentlyAsync();
-
+        
         if (valid)
         {
             LoginGrid.Visibility = Visibility.Collapsed;
@@ -67,6 +67,8 @@ public partial class MainWindow : Window
             LoginGrid.Visibility = Visibility.Visible;
             MainGrid.Visibility  = Visibility.Collapsed;
         }
+
+        NotificationsGrid.Visibility = Visibility.Collapsed;
     }
 
     private void CenterWindow()
@@ -98,9 +100,10 @@ public partial class MainWindow : Window
 
     private void NotificationsButton_Click(object sender, RoutedEventArgs e)
     {
-        if (NotificationsPopup.IsOpen)
-            NotificationsPopup.IsOpen = false;
-        NotificationsPopup.IsOpen = true;
+        if (NotificationsGrid.Visibility == Visibility.Visible)
+            NotificationsGrid.Visibility = Visibility.Collapsed;
+        else
+            NotificationsGrid.Visibility = Visibility.Visible;
     }
     
 }
